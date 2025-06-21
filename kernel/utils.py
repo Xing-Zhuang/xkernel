@@ -68,4 +68,4 @@ class Timer:
                 flag = "😃"
             else:
                 flag = ""     
-            print(f"{row[0]*1000:<20} {row[1]*1000:<15.6f} {row[2]*1000:<15.6f} {ratio:<3.2f}{flag}")
+            print(f"{row[0]:<20} {row[1]*1000:<15.6f} {row[2]*1000:<15.6f} {ratio:<3.2f}{flag}")
