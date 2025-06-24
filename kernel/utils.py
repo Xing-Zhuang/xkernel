@@ -64,7 +64,7 @@ class Timer:
         print("-" * 80)
         for row in self.results:
             ratio = row[1]/row[2]    
-            if ratio>1:
+            if ratio>=1:
                 flag = "😃"
             else:
                 flag = ""     

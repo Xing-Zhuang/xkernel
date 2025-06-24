@@ -2,14 +2,11 @@
 #include <iostream>
 #include "utils.h"
 
-
  
-
-
 __global__ void add_kernel(
-    const float*  a, 
-    const float*  b, 
-    float*  c, 
+    const float*  __restrict__ a, 
+    const float*  __restrict__ b, 
+    float*  __restrict__ c, 
     int n
 ) {
     
@@ -33,8 +30,7 @@ __global__ void add_kernel(
                 c[offset+i] = a[offset+i] + b[offset+i];
             }
         }
- 
-        
+  
     }
 }
 
@@ -45,7 +41,9 @@ void launch_add_kernel(
     float* c, 
     int n
 ){
-    int block_dim_x = 1024;
+ 
+    int block_dim_x = 256;
+     
     dim3 block(block_dim_x,1,1);
     dim3 grid(CEIL(n,(block_dim_x*4)),1,1);
     add_kernel<<<grid, block>>>(a, b, c, n);
