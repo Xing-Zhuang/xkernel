@@ -1,10 +1,10 @@
-
 import os
 from torch.utils.cpp_extension import load
 import glob
 import time
 import torch
-from typing import List
+ 
+ 
 
 class JIT:
     def __init__(self,
@@ -38,10 +38,7 @@ class JIT:
             verbose=True
         )
         print("\n\n\n")
-        return op
-
-
-
+        return op 
 
 class Timer:
     def __init__(self):
